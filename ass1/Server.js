@@ -1,8 +1,8 @@
 var express = require('express');
-var url = require("url");
-var events=require("events");
-var path=require("path");
-var http=require("http");
+var url     = require("url");
+var events  =require("events");
+var pathna  =require("path");
+var http    =require("http");
 
 function start() {
   function onRequest(request, response) {
@@ -27,6 +27,12 @@ function start() {
  
     }
   }
+  
+  var app = express.createServer();
+  app.get(){
+    
+  }
+
   express.createServer(onRequest).listen(8888);
   console.log("Server has started in 8888");
  // console.log('Express server started on port %s', app.address().port);
