@@ -1,8 +1,8 @@
-var express = require('express'),
-	url = require("url"),
-  events=require("events"),
-   path=require("path"),
-   http=require("http");
+var express = require('express');
+var url = require("url");
+var events=require("events");
+var path=require("path");
+var http=require("http");
 
 function start() {
   function onRequest(request, response) {
@@ -16,6 +16,7 @@ function start() {
       //Executes when new tweets are found
       Twitter.EventEmitter.once("tweets", function(tweets){
          console.log(tweets);
+
   
       });
  
