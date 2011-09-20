@@ -1,13 +1,14 @@
 var http = require("http");
 var arrtweetedUsers =[];
-function start(req, res){
+exports.start=function start(req, res){
+	
 	query = req.url.split("?")[1];
 	res.send('Hello World start');
 	console.log(query);
 
-	//var arrtweetedUsers =[];
+
 	getTweets(query);
-	//get_tweets(query);
+	
 	setInterval(getTweets, 10000);  
 }
 
@@ -15,7 +16,7 @@ function view(req, res){
 	res.send('Hello World veiw');
 }
 
-exports.start	= start;
+//exports.start	= start;
 exports.view	=view;
 
 
