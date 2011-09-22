@@ -28,8 +28,10 @@ function tweetedUsers(tweets){
 
 
 exports.rankUsers=function rankUsers(){
-	var rank=[];
-	for(var i=1; i< tweets.results.length; i++){
-		rank.push()
+	var rank={};
+	for(var i=1; i< arrtweetedUsers.length; i++){
+		rank[i]=1;
 	}
+
+	console.log(rank);
 }
