@@ -28,10 +28,29 @@ function tweetedUsers(tweets){
 
 
 exports.rankUsers=function rankUsers(){
+
+	/*
+	1.put data to a map object
+		check if map has ke value
+			if has increment it value by a 1
+			if not create a new key and make value 1
+	2.do insertion sort(key) when inserting
+	3.return the array
+	*/
+
+
 	var rank={};
+	
 	for(var i=1; i< arrtweetedUsers.length; i++){
+
 		rank[i]=1;
 	}
 
-	console.log(rank);
+	isUserExist();
+}
+
+
+function isUserExist(map,name){
+
+	//
 }
