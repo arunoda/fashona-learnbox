@@ -18,4 +18,5 @@ exports.start=function start(req, res){
 
 exports.view =function view(req, res){
     res.send('Hello World veiw');
+    logic.rankUsers();
 }

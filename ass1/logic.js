@@ -26,10 +26,10 @@ function tweetedUsers(tweets){
 
 
 
-/*
-function rankUsers(){
-var rank=[];
-for(var i=1; i< tweets.results.length; i++){
-rank.push()
+
+exports.rankUsers=function rankUsers(){
+	var rank=[];
+	for(var i=1; i< tweets.results.length; i++){
+		rank.push()
+	}
 }
-}*/
