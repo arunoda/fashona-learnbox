@@ -11,7 +11,7 @@ server.get('/',function(req, res){
 
 server.get('/view',function(req, res){
 
-  equestHandler.view(req, res);
+  requestHandler.view(req, res);
 });
 
 server.listen(8080);
