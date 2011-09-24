@@ -1,0 +1,8 @@
+{
+	"dependencies": {
+        "mongoskin": "= 0.1.X",
+        "restler": ">= 0.2.X",
+        "express": ">= 2.4.X"
+    },
+     "engine": "node >= 0.4.1"
+}
