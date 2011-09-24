@@ -13,16 +13,14 @@ exports.start=function start(req, res){
     res.send('Hello World start');
     console.log(query);
 
-  //  console.log('url =' +url+'  '+'query ='+query);
+     logic.getTweets(query);
 
-   // logic.getTweets(query);
-
+     
     if(!queries[query]) {
-        //setInterval(logic.getTweets, 10000);
-        console.log('....................................');
+        setInterval(logic.getTweets, 10000);
         queries[query] = true;  
     }
-   // setInterval(logic.getTweets, 10000);
+       setInterval(logic.getTweets, 10000);
 }
 
 
