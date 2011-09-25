@@ -1,8 +1,9 @@
 var rest=require('restler');
 var mongo = require('mongoskin');
 
+var dbParam ='soori';
 //using database soori
-var db = mongo.db('localhost:27017/soori?auto_reconnect');
+var db = mongo.db('localhost:27017/dbParam?auto_reconnect');
 
 
 
@@ -33,7 +34,7 @@ function tweetedUsers(query,tweets){
 
     	//Ussue's upsert . If no matching document found this should create a new documents
     	//TODO  upsert command had a issue 
-    	db.collection('node').update({"req" : "wtf", "user" : "charithsoori"},{"$inc":{"count" : 1}},true);
+    	db.collection('node').update({"req" : query, "user" : tweet},{"$inc":{"count" : 1}},true);
        
        	
         /*db.collection('node').findAndModify({"query":{"req" : query, "user" : tweets}},
