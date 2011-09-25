@@ -1,4 +1,6 @@
 var rest=require('restler');
+//var require('toolkit');
+
 
 var arrtweetedUsers=[];
 
@@ -36,21 +38,72 @@ exports.rankUsers=function rankUsers(){
 			if not create a new key and make value 1
 	2.do insertion sort(key) when inserting
 	3.return the array
-	*/
+	/*
+	var rankedUsers = {};
+
+	arrtweetedUsers.forEach(function(user){
+		//console.log("user" + user);
+		//console.log("rankedUsers["+user+"]" + rankedUsers[user])
+		if(!rankedUsers[user]){
+			//console.log("yes");
+			rankedUsers[user] = 0;
+		}
+
+		rankedUsers[user]++;
+	})
 
 
-	var rank={};
+	console.log("ranked users");
+	console.log(rankedUsers);
+	console.log("----------------------------------");
 	
-	for(var i=1; i< arrtweetedUsers.length; i++){
-
-		rank[i]=1;
+	var sortArr = [];
+	for(var key in rankedUsers){
+		sortArr.push({k:key, v:rankedUsers[key]});
 	}
 
-	isUserExist();
+	console.log(sortArr);
+	console.log("******");
+
+	var s = sortArr.sortBy(function(s){
+		return s.v;
+	}).map(function(m){
+		return m.k;
+	});
+
+	console.log(s); */
 }
 
 
-function isUserExist(map,name){
+/*
+//console.log("user" + user);
+		//console.log("rankedUsers["+user+"]" + rankedUsers[user])
+		if(!rankedUsers[user]){
+			//console.log("yes");
+			rankedUsers[user] = 0;
+		}
 
-	//
-}
+		rankedUsers[user]++;
+	})
+
+
+	console.log("ranked users");
+	console.log(rankedUsers);
+	console.log("----------------------------------");
+	
+	var sortArr = [];
+	for(var key in rankedUsers){
+		sortArr.push({k:key, v:rankedUsers[key]});
+	}
+
+	console.log(sortArr);
+	console.log("******");
+
+	var s = sortArr.sortBy(function(s){
+		return s.v;
+	}).map(function(m){
+		return m.k;
+	});
+
+	console.log(s); 
+*

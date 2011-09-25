@@ -2,21 +2,31 @@ var http = require("http");
 var logic = require("./logic");
 
 var arrtweetedUsers =[];
+var queries = {};
+
+
 
 exports.start=function start(req, res){
 
     query = req.url.split("?")[1];
+   
     res.send('Hello World start');
     console.log(query);
 
+  //  console.log('url =' +url+'  '+'query ='+query);
 
-    logic.getTweets(query);
+   // logic.getTweets(query);
 
-    setInterval(logic.getTweets, 10000);
+    if(!queries[query]) {
+        //setInterval(logic.getTweets, 10000);
+        console.log('....................................');
+        queries[query] = true;  
+    }
+   // setInterval(logic.getTweets, 10000);
 }
 
 
 exports.view =function view(req, res){
-    res.send('Hello World veiw');
-    logic.rankUsers();
+    
+    logic.rankUsers(req, res);
 }

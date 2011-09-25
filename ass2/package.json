@@ -1,8 +1,13 @@
 {
+	"name": "ass2",
+	"version": "0.1.0",
+
 	"dependencies": {
         "mongoskin": "= 0.1.X",
         "restler": ">= 0.2.X",
-        "express": ">= 2.4.X"
+        "express": ">= 2.4.X",
+        "toolkit": ">= 0.1.4"
     },
-     "engine": "node >= 0.4.1"
+    
+    "engine": "node >= 0.4.1"
 }
