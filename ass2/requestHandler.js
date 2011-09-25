@@ -28,6 +28,7 @@ exports.start=function start(req, res){
 exports.view =function view(req, res){
     
     var query = req.params.query;
+    console.log('..................................... > '+query);
     // var query = req.url.split("?")[1];
    
 
