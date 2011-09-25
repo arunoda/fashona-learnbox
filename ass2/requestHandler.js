@@ -16,8 +16,10 @@ exports.start=function start(req, res){
         console.log('staring lookup for %s', query);
         logic.getTweets(query);
         lookUp(query);
+       // setInterval(logic.getTweets, 10000);
         queries[query] = true; 
     }
+        
 }
 
 function lookUp(query) {
@@ -30,7 +32,10 @@ function lookUp(query) {
 
 exports.view =function view(req, res){
     
-    var query = req.params.query;
+    //var query = req.params.query;
+    var query = req.url.split("?")[1];
+   
+
     logic.rankUsers(query, function(err, users) {
         
         res.contentType('text/html');
