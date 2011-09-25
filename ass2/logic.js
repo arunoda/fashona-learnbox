@@ -36,9 +36,6 @@ function tweetedUsers(query,tweets){
     	//TODO  upsert command had a issue 
     	db.collection('node').update({"req" : query, "user" : tweet},{"$inc":{"count" : 1}},true);
        
-       	
-        /*db.collection('node').findAndModify({"query":{"req" : query, "user" : tweets}},
-        {"sort" : {"count" : 1}},{"update":{"$inc":{"count" : 1}}},true);*/
     });
 
 }
