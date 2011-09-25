@@ -7,7 +7,7 @@ var queries = {};
 
 exports.start=function start(req, res){
 
-    query = req.url.split("?")[1];
+    var query = req.url.split("?")[1];
    
     res.send('Hello World start');
      
@@ -15,18 +15,14 @@ exports.start=function start(req, res){
         // setInterval(logic.getTweets, 10000);
         console.log('staring lookup for %s', query);
         logic.getTweets(query);
-        lookUp(query);
+        
+        setInterval(function() {
+            logic.getTweets(query);
+        }, 10000);
+        
         queries[query] = true; 
     }
 }
-
-function lookUp(query) {
-    
-    setInterval(function() {
-        logic.getTweets(query);
-    }, 10000);
-}
-
 
 exports.view =function view(req, res){
     
