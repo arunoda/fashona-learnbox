@@ -15,16 +15,11 @@ exports.start=function start(req, res){
         // setInterval(logic.getTweets, 10000);
         console.log('staring lookup for %s', query);
         logic.getTweets(query);
-<<<<<<< HEAD
-        lookUp(query);
-       // setInterval(logic.getTweets, 10000);
-=======
         
         setInterval(function() {
             logic.getTweets(query);
         }, 10000);
         
->>>>>>> ed8edc8ea5e4f97f5b3a960b2f246f82a2a6cb4a
         queries[query] = true; 
     }
         
@@ -32,8 +27,8 @@ exports.start=function start(req, res){
 
 exports.view =function view(req, res){
     
-    //var query = req.params.query;
-    var query = req.url.split("?")[1];
+    var query = req.params.query;
+    // var query = req.url.split("?")[1];
    
 
     logic.rankUsers(query, function(err, users) {
