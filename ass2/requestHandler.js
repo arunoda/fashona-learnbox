@@ -7,7 +7,7 @@ var queries = {};
 
 exports.start=function start(req, res){
 
-    query = req.url.split("?")[1];
+    var query = req.url.split("?")[1];
    
     res.send('Hello World start');
      

@@ -71,9 +71,10 @@ function saveUser(query, tweetUser) {
 //Return users in highest tweeted rank order
 
 exports.rankUsers = function rankUsers(query, callback){
-
+    
 	//find the highest tweetes users . Return user count limited to 10 users
 	collection.find({query: query}, {sort: {count: -1}, limit: 10}).toArray(function(err, posts){
+       console.log(posts);
        console.log('viewing users :%s', JSON.stringify(posts));
 		if(callback) callback(null, posts);
 	});
