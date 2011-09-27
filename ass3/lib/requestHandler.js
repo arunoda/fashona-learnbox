@@ -4,12 +4,9 @@ var AssemblaRss = require("./AssemblaRss");
     
 exports.root=function root(req, res){
 
-        console.log('curl feed ');
-        AssemblaRss.getFeed();
-        
-        setInterval(function() {
-            AssemblaRss.getFeed();
-        }, 10000);
-  
-        
+    console.log('curl feed ');
+    AssemblaRss.on('change', function() {
+    	//trigger the url
+    });
+      
 }

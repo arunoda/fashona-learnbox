@@ -1,57 +1,51 @@
 var rest=require('restler');
 var parser = require('libxml-to-js');
-
-var observer = require('./observer');
-
+var EventEmitter = require('events').EventEmitter;
+var util = require('util');
 
 //store previous published date of rss feed
 var oldDate = new Date ('Mon, 26 Sep 2010 19:40:08 +0000');
 
-
 var ResourceUrl = 'http://api.twitter.com/1/statuses/user_timeline.rss?screen_name=charithsoori';
 //var ResourceUrl = 'https://www.assembla.com/spaces/rngncut/stream.rss',{username: 'arunoda.susiripala', password:'OMG12345'};
 
+module.exports = new AssemblaRss();
 
-/*
-    poll RSS 
-    trigger in a new data
-*/
-exports.getFeed=function getFeed(){
+function AssemblaRss() {
+    
+    var self = this;
 
-    rest.get(ResourceUrl)
-        .on('complete', function(data) {
+    setInterval(function() {
+        
+        rest.get(ResourceUrl).on('complete', function(data) {
 
-			parser(data, function (error, result) {
-			    if (error) {
-			        console.error(error);
-			    } else {
-			    	console.log('Old date value is %s ,',oldDate);
-			        console.log(result.channel.item[0].title +" "+result.channel.item[0].pubDate);
-			        var newDate = result.channel.item[0].pubDate;
-			        var triggerVar = DateCompare(oldDate,newDate);
+            parser(data, function (error, result) {
+                if (error) {
+                    console.error(error);
+                } else {
+                    console.log('Old date value is %s ,',oldDate);
+                    console.log(result.channel.item[0].title +" "+result.channel.item[0].pubDate);
+                    var newDate = result.channel.item[0].pubDate;
+                    var triggerVar = dateCompare(oldDate,newDate);
 
-			        if(triggerVar==1){
+                    if(triggerVar==1){
 
-			        	trigure();
-			        }
+                        //this will emit the change
+                        self.emit('change');
+                    }
 
-			        oldDate = newDate;
-			    }
-			});
+                    oldDate = newDate;
+                }
+            });
 
         });
+        
+    }, 15000);
 }
 
+util.inherit(AssemblaRss, EventEmitter);
 
-//Trigure to registers webhooks
-function trigure(){
-	console.log('....................a change ..............');
-
-    observer.notify();
-}
-
-
-function DateCompare(prevDate,newDate){
+function dateCompare(prevDate,newDate){
 	var prevDate = new Date(prevDate);
 	var newDate = new Date(newDate);
 	
