@@ -1,0 +1,12 @@
+{
+	"name": "ass2",
+	"version": "0.1.0",
+
+	"dependencies": {
+        "restler": ">= 0.2.X",
+        "express": ">= 2.4.X",
+        "libxml-to-js": ">= 0.3.x"
+    },
+    
+    "engine": "node >= 0.4.1"
+}
