@@ -3,21 +3,31 @@ var parser = require('libxml-to-js');
 var EventEmitter = require('events').EventEmitter;
 var util = require('util');
 
+var observer = require ('./observer');
+
 //store previous published date of rss feed
 var oldDate = new Date ('Mon, 26 Sep 2010 19:40:08 +0000');
+var feed;
+var Id ;
 
-var ResourceUrl = 'http://api.twitter.com/1/statuses/user_timeline.rss?screen_name=charithsoori';
-//var ResourceUrl = 'https://www.assembla.com/spaces/rngncut/stream.rss',{username: 'arunoda.susiripala', password:'xxxx'};
+/*
+  TODO  Following parameters set though function 'AssemblaRss(key,feed,username,password)'
+        in './start ' file. How send those parameters correctly ?
 
-module.exports = new AssemblaRss();
+  @para id 
+  @para feed
+*/
+module.exports = new AssemblaRss('id','feed','user','pw');
 
-function AssemblaRss() {
+function AssemblaRss(id,feed,user,pw) {
     
     var self = this;
+    Id = id;
+    feedurl = feed + ,{username: user, password: pw};
 
     setInterval(function() {
         
-        rest.get(ResourceUrl).on('complete', function(data) {
+        rest.get(feedurl).on('complete', function(data) {
 
             parser(data, function (error, result) {
                 if (error) {
@@ -29,7 +39,6 @@ function AssemblaRss() {
                     var triggerVar = dateCompare(oldDate,newDate);
 
                     if(triggerVar==1){
-
                         //this will emit the change
                         self.emit('change');
                     }
@@ -45,6 +54,18 @@ function AssemblaRss() {
 
 util.inherit(AssemblaRss, EventEmitter);
 
+
+
+
+assembla.on("change", function(){
+ 
+  // send notifications to webhooks through onserver notify method
+  observer.notify(Id)
+})
+
+
+
+
 function dateCompare(prevDate,newDate){
 	var prevDate = new Date(prevDate);
 	var newDate = new Date(newDate);
@@ -57,64 +78,3 @@ function dateCompare(prevDate,newDate){
 	}
 }
 
-
-//asembla object
-
-/*
-{ '@': { version: '2.0' },
-  channel:{ title: 'Assembla rngNcut Events',
-     link: 'https://www.assembla.com/spaces/rngncut/new_items',
-     description: 'New items and changes in rngNcut space',
-     language: 'en-us',
-     ttl: '60',
-     item: 
-      [ [Object],
-        [Object],
-        [Object],
-        [Object],
-        [Object],
-        [Object],
-        [Object],
-        [Object],
-        [Object],
-        [Object],
-        [Object] ] 
-    } }
-*/
-
-/*
-//twitter object 
-{ '@': 
-   { version: '2.0',
-     xmlns: 
-      { atom: 'http://www.w3.org/2005/Atom',
-        twitter: 'http://api.twitter.com' } },
-  channel: 
-   { title: 'Twitter / charithsoori',
-     link: 'http://twitter.com/charithsoori',
-     'atom:link': { '@': [Object] },
-     description: 'Twitter updates from Charith soori / charithsoori.',
-     language: 'en-us',
-     ttl: '40',
-     item: 
-      [ [Object],
-        [Object],
-        [Object],
-        [Object],
-        [Object],
-        [Object],
-        [Object],
-        [Object],
-        [Object],
-        [Object],
-        [Object],
-        [Object],
-        [Object],
-        [Object],
-        [Object],
-        [Object],
-        [Object],
-        [Object],
-        [Object],
-        [Object] ] } }
-*/

@@ -1,39 +1,41 @@
 var hookAction = require('./hookAction');
-	/*
-		scope
-		-------
-		1. can rigister only one link per id
-		2. support only for one type of action
-		
-	*/
+	
 
 // Store observers globally
 
 var observers ={} ;
 
-
-exports.egister = function register (id , link) {
-	observers[id] =link;
+//save hooks array in a map object id as key
+exports.addToObsrver = function add (id , ArrayObj) {
+	observers[id] =ArrayObj;
 } 
 
+//remove stored array object
 exports.remove = function remove(id){
 
 	 delete observers[id];
 }
 
 
-exports.notify = function notify(){
-		
-	for(key in  observers){
-			
-			//define the function to execute
-		url = observers[hey];
-		sendNotification(url);
-	}
+/*
+	send notifications to hooks by id
+	@para id eg :rngncut
+*/
+
+exports.notify = function notify(id){
+	
+	tempObserver = observers[id];
+	
+	tempObserver.forEach(function(data){
+		sendNotification(data);
+	});
 }
 
-function sendNotification(){
-	hookAction.send();
+/*
+	invoke notification send notification function
+*/
+function sendNotification(data){
+	hookAction.send(data);
 }
 
 
