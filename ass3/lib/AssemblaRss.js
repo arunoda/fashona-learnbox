@@ -9,7 +9,7 @@ var oldDate = new Date ('Mon, 26 Sep 2010 19:40:08 +0000');
 
 
 var ResourceUrl = 'http://api.twitter.com/1/statuses/user_timeline.rss?screen_name=charithsoori';
-//var ResourceUrl = 'https://www.assembla.com/spaces/rngncut/stream.rss',{username: 'arunoda.susiripala', password:'OMG12345'};
+//var ResourceUrl = 'https://www.assembla.com/spaces/rngncut/stream.rss',{username: 'arunoda.susiripala', password:'xxxx'};
 
 
 /*
