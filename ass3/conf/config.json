@@ -1,0 +1,21 @@
+{
+	"rngncut": {
+		"feed": "https://www.assembla.com/spaces/rngncut/stream.rss",
+		"username": "user",
+		"password": "pass",
+		"hooks": [
+			"http://localhost:8080",
+			"http://localhost:8083"
+		] 
+	},
+
+	"yalu-v2": {
+		"feed": "https://www.assembla.com/spaces/yalu-v2/stream.rss",
+		"username": "user",
+		"password": "pass",
+		"hooks": [
+			"http://localhost:8080",
+			"http://localhost:8083"
+		] 
+	}
+}
