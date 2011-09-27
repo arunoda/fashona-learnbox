@@ -12,17 +12,17 @@ var hookAction = require('./hookAction');
 var observers ={} ;
 
 
-exports register = function register (id , link) {
+exports.egister = function register (id , link) {
 	observers[id] =link;
 } 
 
-exports remove = function remove(id){
+exports.remove = function remove(id){
 
 	 delete observers[id];
 }
 
 
-exports  notify = function notify(){
+exports.notify = function notify(){
 		
 	for(key in  observers){
 			
