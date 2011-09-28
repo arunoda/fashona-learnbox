@@ -1,4 +1,4 @@
-var rest=require('restler');
+var rest = require('restler');
 var parser = require('libxml-to-js');
 var EventEmitter = require('events').EventEmitter;
 var util = require('util');
@@ -77,8 +77,6 @@ exports.start=function start(conf){
 
     console.log('configuration loaded');
     console.log(conf);
-    //create feed notification for each feed
-    //AssemblaRss(key,feed,username,password);
 
     for(var name in conf){
         var item = conf[name];
