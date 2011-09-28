@@ -3,7 +3,7 @@ var parser = require('libxml-to-js');
 var EventEmitter = require('events').EventEmitter;
 var util = require('util');
 
-var hookAction = require('./hookAction');
+
 
 //store previous published date of rss feed
 var oldDate = new Date ('Mon, 26 Sep 2010 19:40:08 +0000');
@@ -21,18 +21,26 @@ function AssemblaRss(feed, user, password) {
     setInterval(function() {
         if(user === undefined){
             rest.get(feed).on('complete', function(data) {
-
+            
+            console.log(data);
              parsAndTrigger(data)
           
             });
         }else
-        rest.get(feed,{username:user,password:password}).on('complete', function(data) {
+        
+
+        //This working properly .
+        console.log('Type of user %s', typeof user);
+        console.log('Type of password %s',typeof password);
+
+            rest.get(feed,{username:'arunoda.susiripala',password:'xx'}).on('complete', function(data) {
+        //rest.get(feed,{username:user,password:password}).on('complete', function(data) {
 
              parsAndTrigger(data)
           
         });
         
-    }, 15000);
+    }, 5000);
 }
 
 util.inherits(AssemblaRss, EventEmitter);

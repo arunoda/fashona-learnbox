@@ -1,8 +1,9 @@
 {
 
-
-	"twitter": {
-		"feed": "http://api.twitter.com/1/statuses/user_timeline.rss?screen_name=charithsoori",
+	"rngncut": {
+		"feed": "https://www.assembla.com/spaces/rngncut/stream.rss",
+		"username": "arunoda.susiripala",
+		"password": "OMG12345",
 		"hooks": [
 			"http://google.lk",
 			"http://google.lk"
