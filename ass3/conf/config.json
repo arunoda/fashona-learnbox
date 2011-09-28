@@ -23,8 +23,8 @@
 	"twitter": {
 		"feed": "http://api.twitter.com/1/statuses/user_timeline.rss?screen_name=charithsoori",
 		"hooks": [
-			"http://localhost:8080",
-			"http://localhost:8080"
+			"http://google.lk",
+			"http://google.lk"
 		] 
 	}
 
