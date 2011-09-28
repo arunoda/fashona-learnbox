@@ -1,6 +1,7 @@
 var configuration = require('./conf/configuration');
 var AssemblaRss = require('./lib/AssemblaRss');
 var observer = require('./lib/observer');
+var hookAction = require('./lib/hookAction');
 
 
 configuration.loadConfig();
@@ -12,23 +13,36 @@ configuration.loadConfig();
 	@para key
 	@para config 
 */
-exports.configReady=function configReady(key,config){
-	/*
-		
-	*/
-	var key = key;
-	var feed = config['feed'];
-	var username = config['username'];
-	var password = config['password'];
+exports.configReady=function configReady(conf){
 
-	var hooksArray = config['hooks'];
-
-	//add hook aray to observer with a key . This key generated 
-	//according to propertise order in config.json object
-	 
-	observer.add(key,hooksArray);
-
+	console.log('configuration loaded');
+	console.log(conf);
 	//create feed notification for each feed
-	AssemblaRss(key,feed,username,password);
+	//AssemblaRss(key,feed,username,password);
+
+	for(var name in conf){
+		var item = conf[name];
+		console.log('\n \n Handling item %s in configurations',name);
+		console.log(item);
+
+		var rss = AssemblaRss.load(item.feed, item.password, item.username); 
+
+
+		var hookArray = item.hooks;
+		rss.on('change', function() {
+        	
+        	console.log('A rss feed recived from %s',name);
+        	console.log(rss);
+        	
+        	hookArray.forEach(function(data){
+				hookAction.send(data);
+			});
+
+        	hookAction.send(data);
+
+    	});
+
+
+	}
 
 }

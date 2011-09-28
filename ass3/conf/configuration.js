@@ -46,10 +46,5 @@ module.exports.loadConfig=function loadConfiguration(){
   send JSON configuration to './start.configReady (key,config).
 */
 function sendJSONObject(config){
-
-  for(key in config){
-
-    console.log(config[key]);
-     start.configReady(key,config);
-  }
+     start.configReady(config);
 }

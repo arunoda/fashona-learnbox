@@ -1,21 +1,31 @@
 {
 	"rngncut": {
 		"feed": "https://www.assembla.com/spaces/rngncut/stream.rss",
-		"username": "user",
-		"password": "pass",
+		"username": "arunoda.susiripala",
+		"password": "xxx",
 		"hooks": [
 			"http://localhost:8080",
-			"http://localhost:8083"
+			"http://localhost:8080"
 		] 
 	},
 
 	"yalu-v2": {
 		"feed": "https://www.assembla.com/spaces/yalu-v2/stream.rss",
-		"username": "user",
-		"password": "pass",
+		"username": "arunoda.susiripala",
+		"password": "xx",
 		"hooks": [
 			"http://localhost:8080",
-			"http://localhost:8083"
+			"http://localhost:8080"
+		] 
+	},
+
+
+	"twitter": {
+		"feed": "http://api.twitter.com/1/statuses/user_timeline.rss?screen_name=charithsoori",
+		"hooks": [
+			"http://localhost:8080",
+			"http://localhost:8080"
 		] 
 	}
+
 }
