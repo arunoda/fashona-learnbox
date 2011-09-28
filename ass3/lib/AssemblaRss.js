@@ -61,7 +61,7 @@ function parsAndTrigger(data){
             var triggerVar = dateCompare(oldDate,newDate);
 
             if(triggerVar==1){
-                
+                console.log('time to emmit.................................>');
                 //this will emit the change
                 self.emit('change');
             }

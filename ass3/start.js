@@ -31,13 +31,13 @@ exports.configReady=function configReady(conf){
 		rss.on('change', function() {
         	
         	console.log('A rss feed recived from %s',name);
-        	console.log(rss);
+        	//console.log(rss);
         	
-        	hookArray.forEach(function(data){
-				hookAction.send(data);
+        	hookArray.forEach(function(item){
+				hookAction.send(item);
 			});
 
-        	hookAction.send(data);
+        	hookAction.send(item);
 
     	});
 
