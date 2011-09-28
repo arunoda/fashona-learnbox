@@ -1,23 +1,4 @@
 {
-	"rngncut": {
-		"feed": "https://www.assembla.com/spaces/rngncut/stream.rss",
-		"username": "arunoda.susiripala",
-		"password": "xxx",
-		"hooks": [
-			"http://localhost:8080",
-			"http://localhost:8080"
-		] 
-	},
-
-	"yalu-v2": {
-		"feed": "https://www.assembla.com/spaces/yalu-v2/stream.rss",
-		"username": "arunoda.susiripala",
-		"password": "xx",
-		"hooks": [
-			"http://localhost:8080",
-			"http://localhost:8080"
-		] 
-	},
 
 
 	"twitter": {
