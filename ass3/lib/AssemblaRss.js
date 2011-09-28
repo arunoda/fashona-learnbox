@@ -3,7 +3,6 @@ var parser = require('libxml-to-js');
 var EventEmitter = require('events').EventEmitter;
 var util = require('util');
 
-var observer = require ('./observer');
 
 //store previous published date of rss feed
 var oldDate = new Date ('Mon, 26 Sep 2010 19:40:08 +0000');
@@ -52,6 +51,7 @@ util.inherits(AssemblaRss, EventEmitter);
 function parsAndTrigger(data){
 
     parser(data, function (error, result) {
+        console.log('Test : Recived data stream %s',data);
         if (error) {
                     console.error(error);
         } else {

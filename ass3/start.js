@@ -1,6 +1,5 @@
 var configuration = require('./conf/configuration');
 var AssemblaRss = require('./lib/AssemblaRss');
-var observer = require('./lib/observer');
 var hookAction = require('./lib/hookAction');
 
 
