@@ -64,13 +64,6 @@ function parsAndTrigger(data){
 
 
 
-//AssemblaRss object factory
-
-function load(feed, user, password) {
-    return new AssemblaRss(feed, user, password);
-};
-
-
 
 
 exports.start=function start(conf){
@@ -95,10 +88,10 @@ exports.start=function start(conf){
             hookArray.forEach(function(item){
                 console.log(item);
                 console.log('next url')
-                hookAction.send(item);
+                send(item);
             });
 
-            //hookAction.send(item);
+    
 
         });
 
@@ -106,6 +99,15 @@ exports.start=function start(conf){
     }
 
 }
+
+function send(url){
+        
+    rest.get(url)
+        .on('complete', function(data) {
+            console.log('Hook %s notified ',url);
+    });   
+}
+
 
 
 
@@ -120,4 +122,11 @@ function dateCompare(prevDate,newDate){
 		return 1;
 	}
 }
+
+//AssemblaRss object factory
+
+function load(feed, user, password) {
+    return new AssemblaRss(feed, user, password);
+};
+
 

@@ -1,7 +1,5 @@
 {
 
-	
-
 
 	"twitter": {
 		"feed": "http://api.twitter.com/1/statuses/user_timeline.rss?screen_name=charithsoori",
