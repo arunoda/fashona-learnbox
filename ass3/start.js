@@ -34,10 +34,12 @@ exports.configReady=function configReady(conf){
         	//console.log(rss);
         	
         	hookArray.forEach(function(item){
+        		console.log(item);
+        		console.log('next url')
 				hookAction.send(item);
 			});
 
-        	hookAction.send(item);
+        	//hookAction.send(item);
 
     	});
 

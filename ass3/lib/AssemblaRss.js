@@ -51,7 +51,7 @@ util.inherits(AssemblaRss, EventEmitter);
 function parsAndTrigger(data){
 
     parser(data, function (error, result) {
-        console.log('Test : Recived data stream %s',data);
+     //   console.log('Test : Recived data stream %s',data);
         if (error) {
                     console.error(error);
         } else {
